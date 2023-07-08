@@ -40,16 +40,40 @@ X_train, X_test, y_train, y_test = train_test_split(
 print(len(X_train), len(X_test), len(y_train), len(y_test))
 
 # # Khởi tạo model
-model = RandomForestClassifier(n_estimators=100)
+model = RandomForestClassifier(n_estimators=200)
 model.fit(X_train, y_train)
 
 # Đánh giá mô hình
-accuracy = model.score(X_test, y_test)
-print("Accuracy:", accuracy)
+# accuracy = model.score(X_test, y_test)
+# print("Accuracy:", accuracy)
 
 
 # Lưu mô hình
-filename = 'random_forest_model.joblib'
+filename = 'random_forest_model_200.joblib'
+dump(model, filename)
+
+model = RandomForestClassifier(n_estimators=250)
+model.fit(X_train, y_train)
+
+# Đánh giá mô hình
+# accuracy = model.score(X_test, y_test)
+# print("Accuracy:", accuracy)
+
+
+# Lưu mô hình
+filename = 'random_forest_model_250.joblib'
+dump(model, filename)
+
+model = RandomForestClassifier(n_estimators=300)
+model.fit(X_train, y_train)
+
+# Đánh giá mô hình
+# accuracy = model.score(X_test, y_test)
+# print("Accuracy:", accuracy)
+
+
+# Lưu mô hình
+filename = 'random_forest_model_300.joblib'
 dump(model, filename)
 
 # # Sử dụng mô hình để giải mã captcha mới

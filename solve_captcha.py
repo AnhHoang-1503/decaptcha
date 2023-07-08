@@ -14,9 +14,7 @@ import imutils
 filename = 'random_forest_model.joblib'
 model = load(filename)
 
-n = ''
-
-while n != '#':
+while True:
     n = input("file: ")
 
     CAPTCHA = 'unlabeled_generated_captcha_images/(' + n + ').png'
