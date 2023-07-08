@@ -15,6 +15,8 @@ counts = {}
 
 # duyệt từng ảnh
 for (i, captcha_image_file) in enumerate(captcha_image_files):
+    if (i > 2):
+        break
     print("[INFO] processing image {}/{}".format(i + 1, len(captcha_image_files)))
 
     # Lấy tên file - tương ứng với nhãn
@@ -23,11 +25,11 @@ for (i, captcha_image_file) in enumerate(captcha_image_files):
     print(captcha_correct_text)
 
     # Chuyển thành ảnh thang xám
-    image = cv2.imread(captcha_image_file) 
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) 
+    image = cv2.imread(captcha_image_file)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # Thêm padding 8px
-    gray = cv2.copyMakeBorder(gray, 8, 8, 8, 8, cv2.BORDER_REPLICATE) 
+    gray = cv2.copyMakeBorder(gray, 8, 8, 8, 8, cv2.BORDER_REPLICATE)
 
     # Threshold image (chuyển thành ảnh đen trắng background đen, chữ trắng)
     thresh = cv2.threshold(
@@ -37,8 +39,8 @@ for (i, captcha_image_file) in enumerate(captcha_image_files):
     drawContours = thresh.copy()
     contours, hierarchy = cv2.findContours(
         drawContours, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    
-    letter_image_regions = [] # mảng chứ các vùng chứa chữ cái
+
+    letter_image_regions = []  # mảng chứ các vùng chứa chữ cái
 
     # Duyệt từng contour
     for contour in contours:
