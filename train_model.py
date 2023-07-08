@@ -12,8 +12,6 @@ target = []
 
 # Duyệt qua các folder và file ảnh
 for folder_name in os.listdir(DATASET):
-    if folder_name == 'A':
-        break
     if os.path.isdir(os.path.join(DATASET, folder_name)):
         for image_name in os.listdir(os.path.join(DATASET, folder_name)):
             image_path = os.path.join(
