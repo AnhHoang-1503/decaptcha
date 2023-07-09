@@ -11,7 +11,7 @@ import cv2
 import glob
 import imutils
 
-filename = 'random_forest_model.joblib'
+filename = 'random_forest_model_100.joblib'
 model = load(filename)
 
 while True:
