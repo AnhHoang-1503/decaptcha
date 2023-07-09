@@ -95,7 +95,8 @@ while True:
         image_data = hog(image, orientations=9, pixels_per_cell=(
             8, 8), cells_per_block=(2, 2))
         prediction = model.predict([image_data])
-        # print("Prediction:", prediction)
+        print("File:", image_name)
+        print("Prediction:", prediction)
         result += prediction[0]
 
     print(result)
